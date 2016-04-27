@@ -38,14 +38,19 @@ class MainLogin extends React.Component {
             var pass = window.document.getElementsByTagName('input')[1]
             pass.value = "";
             pass.focus();
+            var thumb = <img src="img/logo-thumb.png" alt="logo-thumb" className="logo"/>
         }
 
         return ( 
-            <div className="main" id="main"> 
-                {login}
-                <input onFocus={this.clear} onBlur={this.reset} className="userIn__pass " type="text" defaultValue="PASSWORD"/>
-                <button className="userIn__button " type="button"> {btn_text} </button>
-                <p className="userIn__help"> Need Help? </p>
+            <div>
+            
+                <div className="main" id="main"> 
+                    {login}
+                    <input onFocus={this.clear} onBlur={this.reset} className="userIn__pass " type="text" defaultValue="PASSWORD"/>
+                    <button className="userIn__button " type="button"> {btn_text} </button>
+                    <p className="userIn__help"> Need Help? </p>
+                </div>
+                {thumb}
             </div>
         );
     }

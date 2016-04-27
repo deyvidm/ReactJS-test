@@ -116,25 +116,31 @@
 	                var pass = window.document.getElementsByTagName('input')[1];
 	                pass.value = "";
 	                pass.focus();
+	                var thumb = _react2.default.createElement("img", { src: "img/logo-thumb.png", alt: "logo-thumb", className: "logo" });
 	            }
 
 	            return _react2.default.createElement(
 	                "div",
-	                { className: "main", id: "main" },
-	                login,
-	                _react2.default.createElement("input", { onFocus: this.clear, onBlur: this.reset, className: "userIn__pass ", type: "text", defaultValue: "PASSWORD" }),
+	                null,
 	                _react2.default.createElement(
-	                    "button",
-	                    { className: "userIn__button ", type: "button" },
-	                    " ",
-	                    btn_text,
-	                    " "
+	                    "div",
+	                    { className: "main", id: "main" },
+	                    login,
+	                    _react2.default.createElement("input", { onFocus: this.clear, onBlur: this.reset, className: "userIn__pass ", type: "text", defaultValue: "PASSWORD" }),
+	                    _react2.default.createElement(
+	                        "button",
+	                        { className: "userIn__button ", type: "button" },
+	                        " ",
+	                        btn_text,
+	                        " "
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        { className: "userIn__help" },
+	                        " Need Help? "
+	                    )
 	                ),
-	                _react2.default.createElement(
-	                    "p",
-	                    { className: "userIn__help" },
-	                    " Need Help? "
-	                )
+	                thumb
 	            );
 	        }
 	    }]);
@@ -20206,7 +20212,7 @@
 
 
 	// module
-	exports.push([module.id, ".centerHor, .rounded, .userIn__button, .userIn, .userIn__pass, .userIn__email, .banner, .main, .jeff, .userIn__success {\n  margin-right: auto;\n  margin-left: auto; }\n\n.rounded, .userIn__button, .userIn, .userIn__pass, .userIn__email {\n  width: 100%;\n  height: 55px;\n  border-radius: 100px;\n  border: solid 1px #00479f;\n  outline: none; }\n\n.banner {\n  display: block;\n  margin-top: 60px; }\n\n.footer {\n  position: absolute;\n  bottom: 20px;\n  display: block;\n  text-align: center;\n  width: 100%;\n  font-size: 12px; }\n\n.userIn__help {\n  font-family: HelveticaNeue;\n  font-size: 13px;\n  color: #00479f;\n  text-align: center;\n  margin-top: 10px; }\n\n.userIn__pass {\n  background: url(" + __webpack_require__(170) + ") no-repeat;\n  margin-top: 20px; }\n\n.userIn__email {\n  background: url(" + __webpack_require__(171) + ") no-repeat;\n  margin-top: 50%; }\n\n.userIn__button {\n  font-weight: bold;\n  background-color: #00479f;\n  color: white;\n  margin-top: 15px;\n  font-size: 17px; }\n\n.userIn, .userIn__pass, .userIn__email {\n  font-family: HelveticaNeue;\n  font-size: 14px;\n  text-indent: 50px;\n  background-size: 20px 20px;\n  background-position: 15px 50%; }\n\n.main {\n  width: 300px;\n  height: 50%; }\n\n.userIn__success--name {\n  font-family: HelveticaNeue;\n  font-size: 20px;\n  font-weight: bold;\n  text-align: center; }\n\n.userIn__success--email {\n  font-family: HelveticaNeue;\n  font-size: 14px;\n  text-align: center; }\n\n.jeff {\n  display: block;\n  width: 100px;\n  height: 100px;\n  margin-top: 20%; }\n", ""]);
+	exports.push([module.id, "body {\n  overflow: scroll; }\n\n.centerHor, .rounded, .userIn__button, .userIn, .userIn__pass, .userIn__email, .banner, .main, .jeff, .userIn__success, .logo {\n  display: block;\n  margin: 0 auto; }\n\n.rounded, .userIn__button, .userIn, .userIn__pass, .userIn__email {\n  width: 100%;\n  height: 55px;\n  border-radius: 100px;\n  border: solid 1px #00479f;\n  outline: none; }\n\n.banner {\n  display: block;\n  margin-top: 60px; }\n\n.footer {\n  position: realtive;\n  bottom: 20px;\n  margin-top: 2%;\n  display: block;\n  text-align: center;\n  width: 100%;\n  font-size: 12px; }\n\n.userIn__help {\n  font-family: HelveticaNeue;\n  font-size: 13px;\n  color: #00479f;\n  text-align: center;\n  margin-top: 10px; }\n\n.userIn__pass {\n  background: url(" + __webpack_require__(170) + ") no-repeat;\n  margin-top: 20px; }\n\n.userIn__email {\n  background: url(" + __webpack_require__(171) + ") no-repeat;\n  margin-top: 50%; }\n\n.userIn__button {\n  font-weight: bold;\n  background-color: #00479f;\n  color: white;\n  margin-top: 15px;\n  font-size: 17px; }\n\n.userIn, .userIn__pass, .userIn__email {\n  font-family: HelveticaNeue;\n  font-size: 14px;\n  text-indent: 50px;\n  background-size: 20px 20px;\n  background-position: 15px 50%; }\n\n.main {\n  width: 300px;\n  height: 50%; }\n\n.userIn__success--name {\n  font-family: HelveticaNeue;\n  font-size: 20px;\n  font-weight: bold;\n  text-align: center;\n  margin: 30px 0 0 0; }\n\n.userIn__success--email {\n  font-family: HelveticaNeue;\n  font-size: 14px;\n  text-align: center; }\n\n.jeff {\n  display: block;\n  width: 100px;\n  height: 100px;\n  margin-top: 20%; }\n\n.logo {\n  width: 400px;\n  height: 21.3px;\n  margin-top: 5%; }\n", ""]);
 
 	// exports
 
