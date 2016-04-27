@@ -1,10 +1,34 @@
 $font-flavour: HelveticaNeue;
 
+$font-size: 14px;
+$font-size-button: 17px;
+
+$dark-blue: #00479f;
+
+$userIn-colour: white;
+$userIn-font-colour: black;
+
+$button-colour: $dark-blue;
+$button-font-colour: white;
+
+
+.centerHor {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.rounded {
+    @extend .centerHor;
+    width: 100%;
+    height: 55px;
+    border-radius: 100px;
+    border: solid 1px $dark-blue;
+    outline: none;
+}
 
 .banner {
+    @extend .centerHor;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 60px;
 }
 
@@ -13,5 +37,76 @@ $font-flavour: HelveticaNeue;
     bottom: 20px;
     display: block;
     text-align: center;
-    width: 100%
+    width: 100%;
+    font-size: 12px;
+}
+
+.userIn__help {
+    font-family: $font-flavour;
+    font-size: 13px;
+    color: $dark-blue;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.userIn__pass {
+    @extend .userIn;
+    background: url(img/pass.png) no-repeat;
+    margin-top: 20px;
+}
+
+.userIn__email {
+    @extend .userIn; 
+    background: url(img/uname.png) no-repeat;
+    margin-top: 50%;
+}
+
+.userIn__button {
+    @extend .rounded;
+    font-weight: bold;
+    background-color: $button-colour;
+    color: $button-font-colour;
+    margin-top: 15px;
+    font-size: $font-size-button;
+}
+
+
+.userIn {
+    @extend .rounded;
+    font-family: $font-flavour;
+    font-size: $font-size;
+    text-indent: 50px;
+    background-size: 20px 20px;
+    background-position: 15px 50%;   
+}
+
+.main {
+    @extend .centerHor;
+    width: 300px;
+    height: 50%;
+}
+
+.userIn__success--name {
+    font-family: $font-flavour;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.userIn__success--email {
+    font-family: $font-flavour;
+    font-size: 14px;
+    text-align: center;
+}
+
+.jeff {
+    @extend .centerHor;
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin-top: 20%;
+}
+
+.userIn__success {
+    @extend .centerHor; 
 }

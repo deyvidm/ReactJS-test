@@ -56,6 +56,14 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _Login = __webpack_require__(166);
+
+	var _Login2 = _interopRequireDefault(_Login);
+
+	var _Login3 = __webpack_require__(173);
+
+	var _Login4 = _interopRequireDefault(_Login3);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64,38 +72,79 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(166);
+	__webpack_require__(167);
 
-	var Input = function (_React$Component) {
-	    _inherits(Input, _React$Component);
+	var MainLogin = function (_React$Component) {
+	    _inherits(MainLogin, _React$Component);
 
-	    function Input() {
-	        _classCallCheck(this, Input);
+	    function MainLogin() {
+	        _classCallCheck(this, MainLogin);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Input).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MainLogin).call(this));
+
+	        _this.state = { isJeff: false };
+	        return _this;
 	    }
 
-	    _createClass(Input, [{
+	    _createClass(MainLogin, [{
+	        key: "clear",
+	        value: function clear(event) {
+	            if (event.target.value === "PASSWORD") {
+	                event.target.value = "";
+	            }
+	        }
+	    }, {
+	        key: "reset",
+	        value: function reset(event) {
+	            if (event.target.value.trim() == "") {
+	                event.target.value = "PASSWORD";
+	            }
+	        }
+	    }, {
+	        key: "updateState",
+	        value: function updateState(new_state) {
+	            this.setState({ isJeff: new_state });
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
+	            var login = _react2.default.createElement(_Login2.default, { updateState: this.updateState.bind(this) });
+	            var btn_text = "NEXT";
+	            if (this.state.isJeff) {
+	                login = _react2.default.createElement(_Login4.default, null);
+	                btn_text = "SIGN IN";
+	                var pass = window.document.getElementsByTagName('input')[1];
+	                pass.value = "";
+	                pass.focus();
+	            }
+
 	            return _react2.default.createElement(
 	                "div",
-	                null,
+	                { className: "main", id: "main" },
+	                login,
+	                _react2.default.createElement("input", { onFocus: this.clear, onBlur: this.reset, className: "userIn__pass ", type: "text", defaultValue: "PASSWORD" }),
+	                _react2.default.createElement(
+	                    "button",
+	                    { className: "userIn__button ", type: "button" },
+	                    " ",
+	                    btn_text,
+	                    " "
+	                ),
 	                _react2.default.createElement(
 	                    "p",
-	                    null,
-	                    " asdf "
+	                    { className: "userIn__help" },
+	                    " Need Help? "
 	                )
 	            );
 	        }
 	    }]);
 
-	    return Input;
+	    return MainLogin;
 	}(_react2.default.Component);
 
 	var app = document.getElementById("app");
 
-	_reactDom2.default.render(_react2.default.createElement(Input, null), app);
+	_reactDom2.default.render(_react2.default.createElement(MainLogin, null), app);
 
 /***/ },
 /* 1 */
@@ -20056,13 +20105,83 @@
 /* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(167);
+
+	var Login = function (_React$Component) {
+	    _inherits(Login, _React$Component);
+
+	    function Login() {
+	        _classCallCheck(this, Login);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Login).apply(this, arguments));
+	    }
+
+	    _createClass(Login, [{
+	        key: "clear",
+	        value: function clear(event) {
+	            if (event.target.value === "EMAIL") {
+	                event.target.value = "";
+	            }
+	        }
+	    }, {
+	        key: "reset",
+	        value: function reset(event) {
+	            if (event.target.value.trim() == "") {
+	                event.target.value = "EMAIL";
+	            }
+	        }
+	    }, {
+	        key: "handleChange",
+	        value: function handleChange(event) {
+	            if (event.target.value === "jeff@focus21.io") {
+	                this.props.updateState(true);
+	            } else {
+	                this.props.updateState(false);
+	            }
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement("input", { onFocus: this.clear, onBlur: this.reset, onChange: this.handleChange.bind(this), className: "userIn__email", type: "text", defaultValue: "EMAIL" });
+	        }
+	    }]);
+
+	    return Login;
+	}(_react2.default.Component);
+
+	exports.default = Login;
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(167);
+	var content = __webpack_require__(168);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(169)(content, {});
+	var update = __webpack_require__(172)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -20079,21 +20198,21 @@
 	}
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(168)();
+	exports = module.exports = __webpack_require__(169)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".banner {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 60px; }\n\n.footer {\n  position: absolute;\n  bottom: 20px;\n  display: block;\n  text-align: center;\n  width: 100%; }\n", ""]);
+	exports.push([module.id, ".centerHor, .rounded, .userIn__button, .userIn, .userIn__pass, .userIn__email, .banner, .main, .jeff, .userIn__success {\n  margin-right: auto;\n  margin-left: auto; }\n\n.rounded, .userIn__button, .userIn, .userIn__pass, .userIn__email {\n  width: 100%;\n  height: 55px;\n  border-radius: 100px;\n  border: solid 1px #00479f;\n  outline: none; }\n\n.banner {\n  display: block;\n  margin-top: 60px; }\n\n.footer {\n  position: absolute;\n  bottom: 20px;\n  display: block;\n  text-align: center;\n  width: 100%;\n  font-size: 12px; }\n\n.userIn__help {\n  font-family: HelveticaNeue;\n  font-size: 13px;\n  color: #00479f;\n  text-align: center;\n  margin-top: 10px; }\n\n.userIn__pass {\n  background: url(" + __webpack_require__(170) + ") no-repeat;\n  margin-top: 20px; }\n\n.userIn__email {\n  background: url(" + __webpack_require__(171) + ") no-repeat;\n  margin-top: 50%; }\n\n.userIn__button {\n  font-weight: bold;\n  background-color: #00479f;\n  color: white;\n  margin-top: 15px;\n  font-size: 17px; }\n\n.userIn, .userIn__pass, .userIn__email {\n  font-family: HelveticaNeue;\n  font-size: 14px;\n  text-indent: 50px;\n  background-size: 20px 20px;\n  background-position: 15px 50%; }\n\n.main {\n  width: 300px;\n  height: 50%; }\n\n.userIn__success--name {\n  font-family: HelveticaNeue;\n  font-size: 20px;\n  font-weight: bold;\n  text-align: center; }\n\n.userIn__success--email {\n  font-family: HelveticaNeue;\n  font-size: 14px;\n  text-align: center; }\n\n.jeff {\n  display: block;\n  width: 100px;\n  height: 100px;\n  margin-top: 20%; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports) {
 
 	/*
@@ -20149,7 +20268,19 @@
 
 
 /***/ },
-/* 169 */
+/* 170 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,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"
+
+/***/ },
+/* 171 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,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"
+
+/***/ },
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -20399,6 +20530,67 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(167);
+
+	var Login2 = function (_React$Component) {
+	    _inherits(Login2, _React$Component);
+
+	    function Login2() {
+	        _classCallCheck(this, Login2);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Login2).apply(this, arguments));
+	    }
+
+	    _createClass(Login2, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "userIn__success" },
+	                _react2.default.createElement("img", { src: "img/jeff.png", className: "jeff centerHor" }),
+	                _react2.default.createElement(
+	                    "p",
+	                    { className: "userIn__success--name" },
+	                    " Jeffery Aramini "
+	                ),
+	                _react2.default.createElement(
+	                    "p",
+	                    { className: "userIn__success--email" },
+	                    " jeff@focus21.io "
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Login2;
+	}(_react2.default.Component);
+
+	exports.default = Login2;
 
 /***/ }
 /******/ ]);
