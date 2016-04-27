@@ -10,6 +10,8 @@
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
     "node-sass": "^3.6.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
     "redux": "^3.5.2",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
@@ -18,7 +20,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --progress --colors",
+    "dev": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
