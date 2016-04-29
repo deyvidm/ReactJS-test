@@ -67,13 +67,13 @@ body, html {
 
 .userIn__pass {
     @extend .userIn;
-    background: url(img/pass.png) no-repeat;
+    background: url(img/pass.svg) no-repeat;
     margin-top: 20px;
 }
 
 .userIn__email {
     @extend .userIn; 
-    background: url(img/uname.png) no-repeat;
+    background: url(img/uname.svg) no-repeat;
     margin-top: 50%;
 }
 
@@ -245,3 +245,15 @@ body, html {
 }
 
 
+@-webkit-keyframes thumb {
+    0% { -webkit-transform: translate(-10px); }
+    25% { -webkit-transform: scale(10px); }
+    50% { -webkit-transform: scale(-5px); }
+    75% { -webkit-transform: scale(5px); }
+    100% { -webkit-transform: scale(0px); }
+}
+
+.shake--pass
+{
+    -webkit-animation: shake 500ms linear;
+}

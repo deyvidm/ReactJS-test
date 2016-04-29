@@ -24,14 +24,21 @@ class MainLogin extends React.Component {
 
     submit(e) {
         e.preventDefault();
-        if (this.state.isJeff && this.state.pass == "asdf") {
+        if (this.state.isJeff && this.state.pass == "makeithappen") {
             this.setState({loggedIn: true});
+        }
+        else { 
+            var input = window.document.getElementById("user__pass");
+            input.className += " shake--pass";
+            setTimeout(function(){ 
+                input.className = input.className.replace(" shake--pass","")
+            }, 500);
         }
     }
 
     
     render() {
-        if (this.state.loggedIn) {
+        if (!this.state.loggedIn) {
             var login = <Login updateState={this.updateState.bind(this)}/>
             var pass = <Password updatePass={this.updatePass.bind(this)}/>
             var btn_text = "NEXT";
@@ -47,7 +54,7 @@ class MainLogin extends React.Component {
                     <div className="main" id="main"> 
                         {login}
                         {pass}
-                        <button className="userIn__button " onClick={this.submit.bind(this)} type="button"> {btn_text} </button>
+                        <button className="userIn__button" id="user__button" onClick={this.submit.bind(this)} type="button"> {btn_text} </button>
                         <p className="userIn__help"> Need Help? </p>
                     </div>
                     {thumb}
@@ -55,7 +62,7 @@ class MainLogin extends React.Component {
             );
         }
 
-        else if (!this.state.loggedIn) {
+        else if (this.state.loggedIn) {
             return ( 
                 <Final/>
             );

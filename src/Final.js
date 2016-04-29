@@ -9,7 +9,7 @@ export default class Final extends React.Component {
             <div className="wrapper__final">
 
                 <div className="navbar--f21">
-                    <a href="#"> <img alt="User" id="navbar--user" className="navbar__profile--f21" src="img/jeff.png"/>       </a>
+                    <a href="#"> <img alt="User" id="navbar--user" className="shake-slow navbar__profile--f21" src="img/jeff.png"/>       </a>
                     <a href="#"> <img alt="Apps" id="navbar--apps" className="navbar__item--f21" src="img/apps.svg"/>          </a>
                     <a href="#"> <img alt="Nots" id="navbar--nots" className="navbar__item--f21" src="img/notifications.svg"/> </a>
                     <a href="#"> <img alt="Help" id="navbar--help" className="navbar__item--f21" src="img/help.svg"/>          </a>
