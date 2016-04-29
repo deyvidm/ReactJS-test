@@ -64,6 +64,10 @@
 
 	var _Login4 = _interopRequireDefault(_Login3);
 
+	var _Password = __webpack_require__(174);
+
+	var _Password2 = _interopRequireDefault(_Password);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -82,66 +86,78 @@
 
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MainLogin).call(this));
 
-	        _this.state = { isJeff: false };
+	        _this.state = { isJeff: false, pass: "init", loggedIn: false };
 	        return _this;
 	    }
 
 	    _createClass(MainLogin, [{
-	        key: "clear",
-	        value: function clear(event) {
-	            if (event.target.value === "PASSWORD") {
-	                event.target.value = "";
-	            }
-	        }
-	    }, {
-	        key: "reset",
-	        value: function reset(event) {
-	            if (event.target.value.trim() == "") {
-	                event.target.value = "PASSWORD";
-	            }
-	        }
-	    }, {
 	        key: "updateState",
-	        value: function updateState(new_state) {
-	            this.setState({ isJeff: new_state });
+	        value: function updateState(is_jeff) {
+	            this.setState({ isJeff: is_jeff });
+	        }
+	    }, {
+	        key: "updatePass",
+	        value: function updatePass(new_pass) {
+	            this.setState({ pass: new_pass });
+	        }
+	    }, {
+	        key: "submit",
+	        value: function submit(e) {
+	            e.preventDefault();
+	            console.log("logging in");
+	            if (this.state.isJeff && this.state.pass == "asdf") {
+	                this.setState({ loggedIn: true });
+	                console.log("logged in");
+	            }
+	            consolge.log("done");
 	        }
 	    }, {
 	        key: "render",
 	        value: function render() {
-	            var login = _react2.default.createElement(_Login2.default, { updateState: this.updateState.bind(this) });
-	            var btn_text = "NEXT";
-	            if (this.state.isJeff) {
-	                login = _react2.default.createElement(_Login4.default, null);
-	                btn_text = "SIGN IN";
-	                var pass = window.document.getElementsByTagName('input')[1];
-	                pass.value = "";
-	                pass.focus();
-	                var thumb = _react2.default.createElement("img", { src: "img/logo-thumb.png", alt: "logo-thumb", className: "logo" });
-	            }
+	            console.log("rendering: " + this.state.loggedIn);
+	            if (!this.state.loggedIn) {
+	                var login = _react2.default.createElement(_Login2.default, { updateState: this.updateState.bind(this) });
+	                var pass = _react2.default.createElement(_Password2.default, { updatePass: this.updatePass.bind(this) });
+	                var btn_text = "NEXT";
+	                var btn_type = "button";
 
-	            return _react2.default.createElement(
-	                "div",
-	                null,
-	                _react2.default.createElement(
+	                if (this.state.isJeff) {
+	                    login = _react2.default.createElement(_Login4.default, null);
+	                    btn_text = "SIGN IN";
+	                    btn_type = "submit";
+	                    var thumb = _react2.default.createElement("img", { src: "img/logo-thumb.png", alt: "logo-thumb", className: "logo" });
+	                }
+
+	                return _react2.default.createElement(
 	                    "div",
-	                    { className: "main", id: "main" },
-	                    login,
-	                    _react2.default.createElement("input", { onFocus: this.clear, onBlur: this.reset, className: "userIn__pass ", type: "text", defaultValue: "PASSWORD" }),
+	                    { className: "wrapper react" },
 	                    _react2.default.createElement(
-	                        "button",
-	                        { className: "userIn__button ", type: "button" },
-	                        " ",
-	                        btn_text,
-	                        " "
+	                        "div",
+	                        { className: "main", id: "main" },
+	                        login,
+	                        pass,
+	                        _react2.default.createElement(
+	                            "button",
+	                            { className: "userIn__button ", onClick: this.submit.bind(this), type: btn_type },
+	                            " ",
+	                            btn_text,
+	                            " "
+	                        ),
+	                        _react2.default.createElement(
+	                            "p",
+	                            { className: "userIn__help" },
+	                            " Need Help? "
+	                        )
 	                    ),
-	                    _react2.default.createElement(
-	                        "p",
-	                        { className: "userIn__help" },
-	                        " Need Help? "
-	                    )
-	                ),
-	                thumb
-	            );
+	                    thumb
+	                );
+	            } else if (this.state.loggedIn) {
+	                return _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    " logged in "
+	                );
+	            }
 	        }
 	    }]);
 
@@ -20212,7 +20228,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  overflow: scroll; }\n\n.centerHor, .rounded, .userIn__button, .userIn, .userIn__pass, .userIn__email, .banner, .main, .jeff, .userIn__success, .logo {\n  display: block;\n  margin: 0 auto; }\n\n.rounded, .userIn__button, .userIn, .userIn__pass, .userIn__email {\n  width: 100%;\n  height: 55px;\n  border-radius: 100px;\n  border: solid 1px #00479f;\n  outline: none; }\n\n.banner {\n  display: block;\n  margin-top: 60px; }\n\n.footer {\n  position: realtive;\n  bottom: 20px;\n  margin-top: 2%;\n  display: block;\n  text-align: center;\n  width: 100%;\n  font-size: 12px; }\n\n.userIn__help {\n  font-family: HelveticaNeue;\n  font-size: 13px;\n  color: #00479f;\n  text-align: center;\n  margin-top: 10px; }\n\n.userIn__pass {\n  background: url(" + __webpack_require__(170) + ") no-repeat;\n  margin-top: 20px; }\n\n.userIn__email {\n  background: url(" + __webpack_require__(171) + ") no-repeat;\n  margin-top: 50%; }\n\n.userIn__button {\n  font-weight: bold;\n  background-color: #00479f;\n  color: white;\n  margin-top: 15px;\n  font-size: 17px; }\n\n.userIn, .userIn__pass, .userIn__email {\n  font-family: HelveticaNeue;\n  font-size: 14px;\n  text-indent: 50px;\n  background-size: 20px 20px;\n  background-position: 15px 50%; }\n\n.main {\n  width: 300px;\n  height: 50%; }\n\n.userIn__success--name {\n  font-family: HelveticaNeue;\n  font-size: 20px;\n  font-weight: bold;\n  text-align: center;\n  margin: 30px 0 0 0; }\n\n.userIn__success--email {\n  font-family: HelveticaNeue;\n  font-size: 14px;\n  text-align: center; }\n\n.jeff {\n  display: block;\n  width: 100px;\n  height: 100px;\n  margin-top: 20%; }\n\n.logo {\n  width: 400px;\n  height: 21.3px;\n  margin-top: 5%; }\n", ""]);
+	exports.push([module.id, "body, html {\n  overflow: scroll;\n  height: 100%; }\n\n.centerHor, .rounded, .userIn__button, .userIn, .userIn__pass, .userIn__email, .banner, .footer, .main, .jeff, .userIn__success, .logo {\n  display: block;\n  margin: 0 auto; }\n\n.rounded, .userIn__button, .userIn, .userIn__pass, .userIn__email {\n  width: 100%;\n  height: 55px;\n  border-radius: 100px;\n  border: solid 1px #00479f;\n  outline: none; }\n\n.banner {\n  display: block;\n  margin-top: 60px; }\n\n.wrapper {\n  position: relative;\n  min-height: 100%; }\n\n.footer {\n  position: absolute;\n  bottom: 20px;\n  margin-top: 2%;\n  text-align: center;\n  width: 100%;\n  font-size: 12px; }\n\n.userIn__help {\n  font-family: HelveticaNeue;\n  font-size: 13px;\n  color: #00479f;\n  text-align: center;\n  margin-top: 10px; }\n\n.userIn__pass {\n  background: url(" + __webpack_require__(170) + ") no-repeat;\n  margin-top: 20px; }\n\n.userIn__email {\n  background: url(" + __webpack_require__(171) + ") no-repeat;\n  margin-top: 50%; }\n\n.userIn__button {\n  font-weight: bold;\n  background-color: #00479f;\n  color: white;\n  margin-top: 15px;\n  font-size: 17px; }\n\n.userIn, .userIn__pass, .userIn__email {\n  font-family: HelveticaNeue;\n  font-size: 14px;\n  text-indent: 50px;\n  background-size: 20px 20px;\n  background-position: 15px 50%; }\n\n.main {\n  width: 300px;\n  height: 50%;\n  padding-bottom: 22px;\n  min-height: 100%; }\n\n.userIn__success--name {\n  font-family: HelveticaNeue;\n  font-size: 20px;\n  font-weight: bold;\n  text-align: center;\n  margin: 30px 0 0 0; }\n\n.userIn__success--email {\n  font-family: HelveticaNeue;\n  font-size: 14px;\n  text-align: center; }\n\n.jeff {\n  display: block;\n  width: 100px;\n  height: 100px;\n  margin-top: 20%; }\n\n.logo {\n  width: 400px;\n  height: 21.3px; }\n", ""]);
 
 	// exports
 
@@ -20597,6 +20613,72 @@
 	}(_react2.default.Component);
 
 	exports.default = Login2;
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Password = function (_React$Component) {
+	    _inherits(Password, _React$Component);
+
+	    function Password() {
+	        _classCallCheck(this, Password);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Password).apply(this, arguments));
+	    }
+
+	    _createClass(Password, [{
+	        key: "clear",
+	        value: function clear(event) {
+	            if (event.target.value === "PASSWORD") {
+	                event.target.value = "";
+	                event.target.type = "password";
+	            }
+	        }
+	    }, {
+	        key: "reset",
+	        value: function reset(event) {
+	            if (event.target.value.trim() == "") {
+	                event.target.value = "PASSWORD";
+	                event.target.type = "text";
+	            }
+	        }
+	    }, {
+	        key: "handleChange",
+	        value: function handleChange(event) {
+	            this.props.updatePass(event.target.value);
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement("input", { onFocus: this.clear, onBlur: this.reset, onChange: this.handleChange.bind(this), id: "pass", className: "userIn__pass ", type: "text", defaultValue: "PASSWORD" });
+	        }
+	    }]);
+
+	    return Password;
+	}(_react2.default.Component);
+
+	exports.default = Password;
 
 /***/ }
 /******/ ]);

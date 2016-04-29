@@ -11,8 +11,9 @@ $userIn-font-colour: black;
 $button-colour: $dark-blue;
 $button-font-colour: white;
 
-body {
+body, html {
     overflow: scroll;
+    height: 100%;
 }
 .centerHor {
     display: block;
@@ -34,11 +35,16 @@ body {
     margin-top: 60px;
 }
 
+.wrapper {
+    position: relative;
+    min-height: 100%;
+}
+
 .footer { 
-    position: realtive;
+    @extend .centerHor;
+    position: absolute;
     bottom: 20px;
     margin-top: 2%;
-    display: block;
     text-align: center;
     width: 100%;
     font-size: 12px;
@@ -87,6 +93,8 @@ body {
     @extend .centerHor;
     width: 300px;
     height: 50%;
+    padding-bottom: 22px;
+    min-height: 100%;
 }
 
 .userIn__success--name {
@@ -119,5 +127,4 @@ body {
     @extend .centerHor;
     width: 400px;
     height: 21.3px;
-    margin-top: 5%;
 }

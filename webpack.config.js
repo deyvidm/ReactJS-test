@@ -5,7 +5,7 @@ module.exports = {
     entry: "./react.js",
     output: {
         path: __dirname + "/src", 
-        filename: "./react.bundle.js"
+        filename: "react.bundle.js"
     },
     module: {
         loaders: [
