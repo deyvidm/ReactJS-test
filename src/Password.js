@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default class Password extends React.Component {
 
     clear(event) {
@@ -27,3 +26,4 @@ export default class Password extends React.Component {
         );
     }
 }
+

@@ -6,6 +6,7 @@ import ReactDOM from "react-dom";
 import Login from "./Login.js";
 import Login2 from "./Login2.js";
 import Password from "./Password.js";
+import Final from "./Final.js";
 
 class MainLogin extends React.Component {
     constructor() {
@@ -30,7 +31,7 @@ class MainLogin extends React.Component {
 
     
     render() {
-        if (!this.state.loggedIn) {
+        if (this.state.loggedIn) {
             var login = <Login updateState={this.updateState.bind(this)}/>
             var pass = <Password updatePass={this.updatePass.bind(this)}/>
             var btn_text = "NEXT";
@@ -54,17 +55,9 @@ class MainLogin extends React.Component {
             );
         }
 
-        else if (this.state.loggedIn) {
+        else if (!this.state.loggedIn) {
             return ( 
-                <div className="wrapper">
-                    <div className="main" id="main"> 
-                        {login}
-                        {pass}
-                        <button className="userIn__button " onClick={this.submit.bind(this)} type={btn_type}> {btn_text} </button>
-                        <p className="userIn__help"> Need Help? </p>
-                    </div>
-                    {thumb}
-                </div>
+                <Final/>
             );
         }
     }

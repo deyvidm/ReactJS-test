@@ -11,6 +11,13 @@ $userIn-font-colour: black;
 $button-colour: $dark-blue;
 $button-font-colour: white;
 
+$app__tile-colour: #f5f5f5;
+$app__tile-hover-colour: white;
+
+$app__tile__margin: 10px;
+$app__tile__width: 130px;
+$app__tile__height: 130px;
+
 body, html {
     overflow: scroll;
     height: 100%;
@@ -128,3 +135,113 @@ body, html {
     width: 400px;
     height: 21.3px;
 }
+
+.wrapper__final {
+    margin-top: 55.5px;
+}
+
+.app__tile {
+    margin: $app__tile__margin;
+    width: $app__tile__width;
+    height: $app__tile__height;
+    background-color: $app__tile-colour;
+    border: solid 1px $app__tile-colour;
+    outline: none;
+}
+
+.app__tile:hover {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.17);
+    background-color: $app__tile-hover-colour;
+}
+
+.app__tile--1 {
+    background: url("img/tile--1.png");
+    background-size: 60px 80px;
+    background-repeat: no-repeat;    
+    background-position: center;
+}
+
+.app__tile--2 {
+    background: url("img/tile--2.png");
+    background-size: 52.8px 69.9px;
+    background-repeat: no-repeat;    
+    background-position: center;
+}
+
+.app__tile--3 {
+    background: url("img/tile--3.png");
+    background-size: 60px 80.7px;
+    background-repeat: no-repeat;    
+    background-position: center;
+}
+
+.app__tile--4 {
+    background: url("img/tile--4.png");
+    background-size: 60px 60px;
+    background-repeat: no-repeat;    
+    background-position: center;
+}
+
+.app__tile--5 {
+    background: url("img/tile--5.png");
+    background-size: 55px 58.5px;
+    background-repeat: no-repeat;    
+    background-position: center;
+}
+
+.app__tile--6 {
+    background: url("img/tile--6.png");
+    background-size: 60px 52.6px;
+    background-repeat: no-repeat;    
+    background-position: center;
+}
+
+.app__tile--7 {
+    background: url("img/tile--7.png");
+    background-size: 57px 80.1px;
+    background-repeat: no-repeat;    
+    background-position: center;
+}
+
+.app__tile--8 {
+    background: url("img/tile--8.png");
+    background-size: 55px 69.9px;
+    background-repeat: no-repeat;    
+    background-position: center;
+}
+
+.app__tile--9 {
+    background: url("img/tile--9.png");
+    background-size: 50px 74px;
+    background-repeat: no-repeat;    
+    background-position: center;
+}
+
+.app__tile__row { 
+    width: $app__tile__width*3 + $app__tile__margin*6
+}
+
+.navbar--f21 {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: none;
+}
+
+.navbar__profile--f21 {
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-top: 20px;
+
+}
+
+.navbar__item--f21 {
+    width: 19px;
+    height: 19px;
+    float: right;
+    margin-top: 30px;
+    margin-right: 15px;
+}
+
+
