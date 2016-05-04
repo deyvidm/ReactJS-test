@@ -115,9 +115,7 @@
 	                input.className += " shake--pass";
 	                setTimeout(function () {
 	                    input.className = input.className.replace(" shake--pass", "");
-	                    console.log("removed");
 	                }, 500);
-	                console.log("post");
 	            }
 	        }
 	    }, {
@@ -20182,15 +20180,6 @@
 	                this.props.updateState(true);
 	            } else {
 	                this.props.updateState(false);
-	            }
-	            if (event.keyCode == 13 && event.target.value != uname) {
-	                var input = window.document.getElementById("user__email");
-	                input.className += " shake--pass";
-	                setTimeout(function () {
-	                    input.className = input.className.replace(" shake--pass", "");
-	                    console.log("removed");
-	                }, 500);
-	                console.log("post");
 	            }
 	        }
 	    }, {
