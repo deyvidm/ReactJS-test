@@ -1,0 +1,102 @@
+$loanerr-teal-light: #12b5b1;
+$loanerr-teal-dark: #0e8b89;
+
+$loanerr-font: Open Sans;
+
+#lorem-1 {
+    background: linear-gradient($loanerr-teal-light,$loanerr-teal-dark);
+    font-family: $loanerr-font;
+    color: white;
+    height: 100vh;
+    overflow: auto;
+}
+
+#lorem-1 div {
+    text-align: center;
+    display: block;
+    margin: auto 25%;
+}
+
+#lorem-1 div h1 {
+    font-size: 50px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#li-logo {
+    border-radius: 10px;
+    margin: 5% auto;
+    display: block;
+}
+
+//lorerm-2 startin  ----------------------------------------- // 
+
+#lorem-2 {
+    height: 100vh;
+    background-color: black;
+    background: url("img/toronto-skyline.jpg");
+    background-size: cover;
+    font-family: $loanerr-font;
+    margin: 0;
+    padding: 0;
+    // display: flex;
+    // justify-content: center;
+}
+#fade-to-black {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    opacity: 0;
+    transition: all 2s;
+    z-index: 2;
+}
+#lorem-2:hover #fade-to-black{
+    opacity: 0.3;
+}
+
+#middle-bar {
+    position: relative;
+    align-self: center;
+    bottom: 50%;
+    width: 100%;
+    text-align: center;
+    background: white;
+    opacity: 0.6;
+    z-index: 3;
+    transition: all 1s;
+}
+
+#middle-bar div{
+    font-size: 20px;
+
+}
+
+#middle-bar:hover {
+    opacity: .9;
+    background-color: white;
+}
+
+#who-knows {
+    transition: all 1s;
+
+}
+
+@keyframes middle-hover {
+    0%   { font-weight: 0px}
+    25%  { font-weight: 250px}
+    50%  { font-weight: 500px}
+    75%  { font-weight: 750px}
+    100% { font-weight: 900px}
+}
+
+#middle-bar:hover #who-knows{
+    font-weight: 700;
+    font-size: 30px;
+    color: $loanerr-teal-dark;
+
+}
+
+

@@ -1,4 +1,4 @@
-
+var webpack = require("webpack");
 
 module.exports = {
     context: __dirname + "/src",
@@ -21,10 +21,10 @@ module.exports = {
                 
             },
             {
-                test: [/\.png$/, /\.svg$/], 
+                test: [/\.png$/, /\.svg$/,/\.jpg$/ ], 
                 loader: "url-loader?limit=100000"
             } 
 
         ]
     }
-};
+};  
